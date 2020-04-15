@@ -64,11 +64,11 @@ int main()
     printf("\nNomor pilihan anda : ");
     scanf("%d", &pilihan_akhir);
 
-    while(pilihan_akhir!=1 || pilihan_akhir!=2)
+    while(pilihan_akhir!=1 && pilihan_akhir!=2)
     {
             printf("Pilihan anda salah, silakan ulangi!");
             printf("\nNomor pilihan anda : ");
-            scanf("%d", pilihan_akhir);
+            scanf("%d", &pilihan_akhir);
     }
 
     if(pilihan_akhir==1)
