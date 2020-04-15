@@ -2,10 +2,9 @@
 * MODUL 8 – TUGAS BESAR
 * Kelompok : 1 Rombongan D
 * Hari dan Tanggal : Selasa, 15 April 2020
-* Asisten (NIM) : 
+* Asisten (NIM) : Arief Hirmanto (13217076)
 * Nama File : main.c
-* Deskripsi : Implementasi Alokasi Array Dinamik
-* untuk Konvolusi Sirkuler dan Linear
+* Deskripsi : Main program game of life
 */
 
 #include <stdio.h>
