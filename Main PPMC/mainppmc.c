@@ -13,8 +13,11 @@
 int main()
 {
     int menu, iterasi, pilihan_akhir;
-    printf("--------------------GAME OF LIFE------------------");
+    printf("------------------------------GAME OF LIFE----------------------------");
+    printf("\n                     Welcome to Game of Life!");
     printf("\nProgram permainan simulasi sel yang menggambarkan perkembangan populasi");
+    printf("\nProgram ini akan mensimulasikan sel yang berasal dari file seed yang anda inginkan.");
+    printf("\n---------------------------Selamat Bermain!--------------------------");
     printf("\n");
     /*printf("\nKelompok 1 Rombongan D");
     printf("\nAnggota :");
@@ -42,20 +45,50 @@ int main()
         scanf("%d", &menu);
     }
 
+    if(menu==1)
+    {
+        printf("Anda memilih menu Animation");
+        printf("\nMasukkan jumlah iterasi yang diinginkan : ");
+        scanf("%d", &iterasi);
+    }
+    else if(menu==2)
+    {
+        printf("Anda memilih menu Tick");
+                
+    }
+    /*while(menu!=3)
+    {
+        printf("\nSilakan pilih salah satu menu :");
+        printf("\n1.Animation");
+        printf("\n2.Tick");
+        printf("\n3.Quit");
+        printf("\nMasukkan nomor menu : ");
+        scanf("%d", &menu);
+
+
+    }*/
     while(menu!=3)
     {
+        printf("\n");
+        printf("Silakan pilih salah satu menu :");
+        printf("\n1.Animation");
+        printf("\n2.Tick");
+        printf("\n3.Quit");
+        printf("\nMasukkan nomor menu : ");
+        scanf("%d", &menu);
+
         if(menu == 1)
         {
             printf("\nAnda memilih menu Animation");
             printf("\nMasukkan jumlah iterasi yang diinginkan : ");
             scanf("%d", &iterasi);
-                /*runsimulasi*/
+               
         }
-            /*else
-            {
-                cek neighborhood, runSimulasi*/
-            
-            
+        else if(menu==2)
+        {
+            printf("\nAnda memilih menu Tick\n");
+                
+        }
     }
 
     printf("\nMasukkan file seed baru?");
@@ -77,7 +110,8 @@ int main()
     }
     else
     {
-        printf("Terima kasih!");
+        printf("Terima kasih karena telah bermain Game of Life!");
+        printf("\nKami tunggu permainan anda berikutnya!");
     }
         
         
