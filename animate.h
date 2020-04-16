@@ -4,8 +4,9 @@
 
 typedef int TableType[18][45];
 
-void animate(int n, char table[i][j])
+void animate()
 {
+    int n, i;
     printf("Berapa jumlah iterasi yang Anda inginkan?");
     scanf("%d", &n);
     system("cls");
