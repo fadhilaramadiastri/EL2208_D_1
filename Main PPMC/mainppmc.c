@@ -16,13 +16,15 @@
 #include "runTick.c"        //Memasukkan file runTick.c pada file main untuk fungsi runTick
 #include "animate.c"        //Memasukkan file animate.c pada file main untuk fungsi runAnimation
 
-FILE *file;             //Deklarasi variable universal karena akan digunakan pada berbagai fungsi
+//Deklarasi variable universal karena akan digunakan pada berbagai fungsi
+FILE *file;             
 char filename[20];
 
 int row, col;
 int board[100][100];
 
-void menu_game()        //Fungsi pemilihan menu
+//Fungsi pemilihan menu
+void menu_game()        
 {
 
     int menu;
@@ -31,7 +33,7 @@ void menu_game()        //Fungsi pemilihan menu
     printf("\n2.Tick");
     printf("\n3.Quit");
     
-    printf("\nMasukkan nomor menu : ");     //Meminta input menu
+    printf("\nMasukkan nomor menu : ");          //Meminta input menu
     scanf("%d", &menu);
 
     while((menu!=1) && (menu!=2) && (menu!=3))  //Keadaan bila input tidak valid
@@ -48,11 +50,11 @@ void menu_game()        //Fungsi pemilihan menu
     }
     else if(menu==2)
     {
-        runTick(row, col, board);       //Memanggil fungsi runTick bila menu == 2
+        runTick(row, col, board);           //Memanggil fungsi runTick bila menu == 2
                 
     }
    
-    while(menu!=3)      //Fungsi akan terus berjalan selama input menu adalah 1 atau 2
+    while(menu!=3)                          //Fungsi akan terus berjalan selama input menu adalah 1 atau 2
     {
         printf("\n");
         printf("Silakan pilih salah satu menu :");
@@ -75,6 +77,7 @@ void menu_game()        //Fungsi pemilihan menu
     return;
 }
 
+//Program Utama
 int main()
 {
     //Judul dan Deskripsi Program
@@ -91,11 +94,12 @@ int main()
 
     printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");    
 
-    scanf("%s",filename);       //Meminta input file seed dari pengguna
+    scanf("%s",filename);               //Meminta input file seed dari pengguna
 
     file = fopen(filename,"r+");        //Membuka file seed
-
-    while(file==NULL)       //Kondisi bila file input tidak valid
+    
+    //Kondisi bila file input tidak valid
+    while(file==NULL)                   
     {
         printf("File yang anda masukkan salah. Silakan ulangi!");
 
@@ -107,24 +111,27 @@ int main()
 
     }
 
-    readSeed(file, &row, &col, board);      //Mencetak file seed ke layar dengan memanggil fungsi readSeed
-    menu_game();        //Pemanggilan fungsi menu_game untuk memilih opsi
+    readSeed(file, &row, &col, board);          //Mencetak file seed ke layar dengan memanggil fungsi readSeed
+    menu_game();                                //Pemanggilan fungsi menu_game untuk memilih opsi
 
     printf("\nMasukkan file seed baru?");       //Keadaan bila input menu = 3 atau quit
     printf("\n1. Ya");
     printf("\n2. Tidak");
     printf("\nNomor pilihan anda : ");
-
+    
+    //Meminta input pilihan akhir dari pengguna
     scanf("%d", &pilihan_akhir);
 
-    while(pilihan_akhir!=1 && pilihan_akhir!=2)     //Kondisi bila input tidak valid
+    //Kondisi bila input tidak valid
+    while(pilihan_akhir!=1 && pilihan_akhir!=2)     
     {
         printf("Pilihan anda salah, silakan ulangi!");
         printf("\nNomor pilihan anda : ");
 
         scanf("%d", &pilihan_akhir);
     }
-
+    
+    //Apabila pilihan_akhir == 1 maka program akan kembali ke awal dengan file seed baru
     while(pilihan_akhir==1)
     {
         printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");    //Meminta kembali file seed baru
@@ -132,10 +139,11 @@ int main()
         scanf("%s",filename);
 
         file = fopen(filename,"r+");
-
+        
+        //Kondisi bila file yang dimasukkan tidak valid
         while(file==NULL)
         {
-            printf("File yang anda masukkan kosong. Silakan ulangi!");
+            printf("File yang anda masukkan salah. Silakan ulangi!");
 
             printf("\nMasukkan nama file eksternal berisi seed untuk simulasi: ");
 
@@ -145,6 +153,7 @@ int main()
 
         }
         
+        //Memanggil fungsi untuk file seed yang baru
         readSeed(file, &row, &col, board);
         menu_game();
 
@@ -165,7 +174,8 @@ int main()
 
     }
     
-    printf("            Terima kasih karena telah bermain Game of Life!");      //Program berakhir bila pengguna memilih pilihan_akhir == 2
+    //Program berakhir bila pengguna memilih pilihan_akhir == 2
+    printf("            Terima kasih karena telah bermain Game of Life!");      
     printf("                \nKami tunggu permainan anda berikutnya!");
     printf("\n------------------------------SEE YOU------------------------------");
     
