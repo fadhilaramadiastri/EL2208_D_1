@@ -55,34 +55,35 @@ void menu_game()
         runTick(row, col, board);           //Memanggil fungsi runTick bila menu == 2
                 
     }
-   
-    while(menu!=3)                          //Fungsi akan terus berjalan selama input menu adalah 1 atau 2
+    
+    while(menu!=3)                        //Fungsi akan terus berjalan selama input menu adalah 1 atau 2
     {
-        printf("\n");
+        
         printf("Silakan pilih salah satu menu :");
         printf("\n1.Animation");
         printf("\n2.Tick");
         printf("\n3.Quit");
-        printf("\nMasukkan nomor menu : ");
+    
+        printf("\nMasukkan nomor menu : ");          //Meminta input menu
         scanf("%d", &menu);
 
         while((menu!=1) && (menu!=2) && (menu!=3))  //Keadaan bila input tidak valid
         {
-        printf("Input menu tidak sesuai, ulangi!");     
+            printf("Input menu tidak sesuai, ulangi!");     
         
-        printf("\nMasukkan nomor menu : "); 
-        scanf("%d", &menu);
+            printf("\nMasukkan nomor menu : "); 
+            scanf("%d", &menu);
         }
 
-        if(menu == 1)
+        if(menu==1)
         {
             printf("Anda memilih menu Animation\n");
-            runAnimate(row, col, board);    
+            runAnimate(row, col, board);        //Memanggil fungsi runAnimate bila menu == 1
         }
         else if(menu==2)
         {
             printf("Anda memilih menu Tick\n");
-            runTick(row, col, board);
+            runTick(row, col, board);           //Memanggil fungsi runTick bila menu == 2
                 
         }
     }
