@@ -114,10 +114,10 @@ int main()
 
     file = fopen(filename,"r+");        //Membuka file seed
     
-    //Kondisi bila file input tidak valid
+    //Kondisi bila file input tidak valid atau kosong
     while(file==NULL)                   
     {
-        printf("File yang anda masukkan salah. Silakan ulangi!");
+        printf("File yang anda masukkan kosong. Silakan ulangi!");
 
         printf("\nMasukkan nama file eksternal berisi seed untuk simulasi: ");
 
@@ -160,7 +160,7 @@ int main()
         //Kondisi bila file yang dimasukkan tidak valid
         while(file==NULL)
         {
-            printf("File yang anda masukkan salah. Silakan ulangi!");
+            printf("File yang anda masukkan kosong. Silakan ulangi!");
 
             printf("\nMasukkan nama file eksternal berisi seed untuk simulasi: ");
 
