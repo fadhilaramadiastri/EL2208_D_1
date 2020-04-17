@@ -34,7 +34,7 @@ void menu_game()
     }
     else if(menu==2)
     {
-        printf("Anda memilih menu Tick");
+        printf("\nAnda memilih menu Tick\n");
                 
     }
    
@@ -67,12 +67,76 @@ void menu_game()
 int main()
 {
     int pilihan_akhir;
+    FILE *file;
+
+    char strrow[3];
+    char strcol[3];
+    char str[50];
+
+    int row;
+    int col;
+    int height, width, i,j;
+
+    char filename[20];
+
     printf("------------------------------GAME OF LIFE----------------------------");
     printf("\n                     Welcome to Game of Life!");
     printf("\nProgram permainan simulasi sel yang menggambarkan perkembangan populasi");
     printf("\nProgram ini akan mensimulasikan sel yang berasal dari file seed yang anda inginkan.");
     printf("\n---------------------------Selamat Bermain!--------------------------");
     printf("\n");
+
+    printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");
+
+    scanf("%s",filename);
+
+    file = fopen(filename,"r+");
+    
+    fscanf(file, "%s\n", strrow);
+    fscanf(file, "%s\n", strcol);
+
+    row = atoi(strrow);
+    col = atoi(strcol);
+
+    printf("%d\n", row);
+    printf("%d", col);
+
+    char table[row][col];
+
+    for(width = 0; width < row; width++) 
+    {
+        fgets(str, 50, file);
+        printf("\n");
+        for(height = 0; height < col; height++) 
+        {
+            table[width][height] = str[height];
+            printf("%c", table[width][height]);
+        }
+    }
+
+    printf("\n");
+
+
+    char live;
+    int board[width][height];
+
+    for(width = 0; width < row; width++) 
+    {
+        for(height = 0; height < col; height++) 
+        {
+            if ((table[width][height]) == 'X')
+            {
+                board[width][height] = 1;
+            }
+            else
+            {
+                board[width][height] = 0;
+            }
+            //printf("%d", board[width][height]);
+        }
+        //printf("\n");
+    }
+    //printf("\n");
 
     menu_game();
 
