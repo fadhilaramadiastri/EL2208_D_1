@@ -20,5 +20,9 @@
 ---------------------------------------------
 ---------------------------------------------
 ---------------------------------------------
+# seed pattern made by Athaya Syaqra
+# this diamond seed will bloom in every 2 iteration
+# it will seperate to little pieces
+# and continuously blooming
 
 
