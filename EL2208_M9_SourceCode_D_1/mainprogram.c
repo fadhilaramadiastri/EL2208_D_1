@@ -174,6 +174,7 @@ int main()
         readSeed(file, &row, &col, board);
         menu_game();
 
+        printf("Anda memilih menu Quit");
         printf("\nMasukkan file seed baru?");
         printf("\n1. Ya");
         printf("\n2. Tidak");
