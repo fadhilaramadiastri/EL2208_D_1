@@ -194,7 +194,7 @@ int main()
     //Program berakhir bila pengguna memilih pilihan_akhir == 2
     printf("            Terima kasih karena telah bermain Game of Life!");      
     printf("\n                   Kami tunggu permainan anda berikutnya!");
-    printf("\n------------------------------SEE YOU------------------------------");
+    printf("\n------------------------------SEE YOU------------------------------\n");
     
     fclose(file);       //Menutup file
 
