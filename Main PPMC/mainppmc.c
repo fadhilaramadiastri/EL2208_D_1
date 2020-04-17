@@ -8,6 +8,87 @@
 */
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void readseed()
+{   FILE *file;
+
+    char strrow[3];
+    char strcol[3];
+    char str[50];
+
+    int row;
+    int col;
+    int height, width, i,j;
+
+    char filename[20];
+
+    printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");
+
+    scanf("%s",filename);
+
+    file = fopen(filename,"r+");
+
+    while(file==NULL)
+    {
+        printf("File yang anda masukkan kosong. Silakan ulangi!");
+
+        printf("\nMasukkan nama file eksternal berisi seed untuk simulasi: ");
+
+        scanf("%s",filename);
+
+        file = fopen(filename,"r+");
+
+    }
+    
+    fscanf(file, "%s\n", strrow);
+    fscanf(file, "%s\n", strcol);
+
+    row = atoi(strrow);
+    col = atoi(strcol);
+
+    printf("%d\n", row);
+    printf("%d", col);
+
+    char table[row][col];
+
+    for(width = 0; width < row; width++) 
+    {
+        fgets(str, 50, file);
+        printf("\n");
+        for(height = 0; height < col; height++) 
+        {
+            table[width][height] = str[height];
+            printf("%c", table[width][height]);
+        }
+    }
+
+    printf("\n");
+
+
+    char live;
+    int board[width][height];
+
+    for(width = 0; width < row; width++) 
+    {
+        for(height = 0; height < col; height++) 
+        {
+            if ((table[width][height]) == 'X')
+            {
+                board[width][height] = 1;
+            }
+            else
+            {
+                board[width][height] = 0;
+            }
+            //printf("%d", board[width][height]);
+        }
+        //printf("\n");
+    }
+    //printf("\n");
+    return;
+}
 
 void menu_game()
 {
@@ -67,17 +148,6 @@ void menu_game()
 int main()
 {
     int pilihan_akhir;
-    FILE *file;
-
-    char strrow[3];
-    char strcol[3];
-    char str[50];
-
-    int row;
-    int col;
-    int height, width, i,j;
-
-    char filename[20];
 
     printf("------------------------------GAME OF LIFE----------------------------");
     printf("\n                     Welcome to Game of Life!");
@@ -86,87 +156,42 @@ int main()
     printf("\n---------------------------Selamat Bermain!--------------------------");
     printf("\n");
 
-    printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");
-
-    scanf("%s",filename);
-
-    file = fopen(filename,"r+");
+    readseed();
     
-    fscanf(file, "%s\n", strrow);
-    fscanf(file, "%s\n", strcol);
-
-    row = atoi(strrow);
-    col = atoi(strcol);
-
-    printf("%d\n", row);
-    printf("%d", col);
-
-    char table[row][col];
-
-    for(width = 0; width < row; width++) 
-    {
-        fgets(str, 50, file);
-        printf("\n");
-        for(height = 0; height < col; height++) 
-        {
-            table[width][height] = str[height];
-            printf("%c", table[width][height]);
-        }
-    }
-
-    printf("\n");
-
-
-    char live;
-    int board[width][height];
-
-    for(width = 0; width < row; width++) 
-    {
-        for(height = 0; height < col; height++) 
-        {
-            if ((table[width][height]) == 'X')
-            {
-                board[width][height] = 1;
-            }
-            else
-            {
-                board[width][height] = 0;
-            }
-            //printf("%d", board[width][height]);
-        }
-        //printf("\n");
-    }
-    //printf("\n");
-
     menu_game();
 
     printf("\nMasukkan file seed baru?");
     printf("\n1. Ya");
     printf("\n2. Tidak");
     printf("\nNomor pilihan anda : ");
+
     scanf("%d", &pilihan_akhir);
 
     while(pilihan_akhir!=1 && pilihan_akhir!=2)
     {
         printf("Pilihan anda salah, silakan ulangi!");
         printf("\nNomor pilihan anda : ");
+
         scanf("%d", &pilihan_akhir);
     }
 
     while(pilihan_akhir==1)
     {
-        printf("\nMasukkan file seed baru : \n");
+        readseed();
         menu_game();
+
         printf("\nMasukkan file seed baru?");
         printf("\n1. Ya");
         printf("\n2. Tidak");
         printf("\nNomor pilihan anda : ");
+
         scanf("%d", &pilihan_akhir);
 
         while(pilihan_akhir!=1 && pilihan_akhir!=2)
         {
             printf("Pilihan anda salah, silakan ulangi!");
             printf("\nNomor pilihan anda : ");
+
             scanf("%d", &pilihan_akhir);
         }
 
