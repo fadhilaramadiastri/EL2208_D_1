@@ -82,7 +82,7 @@ int main()
 {
     //Judul dan Deskripsi Program
     printf("-----------------------------------GAME OF LIFE---------------------------------");
-    printf("\n                     Welcome to Game of Life!");
+    printf("\n                            Welcome to Game of Life!");
     printf("\n");
     printf("\nProgram permainan simulasi sel yang menggambarkan perkembangan populasi");
     printf("\nProgram ini akan mensimulasikan sel yang berasal dari file seed yang anda inginkan.");
@@ -90,6 +90,7 @@ int main()
     printf("\nPermainan ini akan meminta file seed dari anda, jadi jangan lupa siapkan file seed yang diinginkan!");
     printf("\n");
     printf("\n--------------------------------Selamat Bermain!-------------------------------");
+    printf("\n");
     printf("\n");
 
     int pilihan_akhir;
@@ -178,7 +179,7 @@ int main()
     
     //Program berakhir bila pengguna memilih pilihan_akhir == 2
     printf("            Terima kasih karena telah bermain Game of Life!");      
-    printf("                \nKami tunggu permainan anda berikutnya!");
+    printf("\n                   Kami tunggu permainan anda berikutnya!");
     printf("\n------------------------------SEE YOU------------------------------");
     
     fclose(file);       //Menutup file
