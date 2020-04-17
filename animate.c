@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <windows.h>
+//#include "runTick.h"
 
 void runAnimate(int M, int N, int grid[M][N])
 {
@@ -15,7 +16,7 @@ void runAnimate(int M, int N, int grid[M][N])
     {
         //system("clear");
         system("cls");
-        nextGeneration(M, N, grid);
+        runTick(M, N, grid);
         Sleep(250);
     }
 }
