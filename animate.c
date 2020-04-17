@@ -12,19 +12,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <windows.h>
-#include "runTick.c"  //Memasukkan file runTick.c agar dapat berjalan
+#include "runTick.c"                //Memasukkan file runTick.c agar dapat berjalan
 
 void runAnimate(int M, int N, int grid[M][N])
 {
     int i, n;
     printf("Masukkan jumlah iterasi yang Anda inginkan: ");
-    scanf("%d", &n);        //Input jumlah iterasi yang diinginkan
+    scanf("%d", &n);                //Input jumlah iterasi yang diinginkan
     //system("clear");
-    system("cls");
+    system("cls");                  //Menghapus tampilan layar sebelumnya
     for(i = 0; i < n; i++)
     {
         //system("clear");
-        system("cls");
+        system("cls");              //Menghapus tampilan layar sebelumnya
         runTick(M, N, grid);        //Memanggil fungsi runTick
         Sleep(250);                 //Delay selama 250 ms
     }
