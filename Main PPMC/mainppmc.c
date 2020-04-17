@@ -83,10 +83,12 @@ int main()
     //Judul dan Deskripsi Program
     printf("-----------------------------------GAME OF LIFE---------------------------------");
     printf("\n                     Welcome to Game of Life!");
+    printf("\n");
     printf("\nProgram permainan simulasi sel yang menggambarkan perkembangan populasi");
     printf("\nProgram ini akan mensimulasikan sel yang berasal dari file seed yang anda inginkan.");
     printf("\nPerkembangan sel dan populasi yang terjadi akan dipengaruhi oleh beberapa aturan.");
     printf("\nPermainan ini akan meminta file seed dari anda, jadi jangan lupa siapkan file seed yang diinginkan!");
+    printf("\n");
     printf("\n--------------------------------Selamat Bermain!-------------------------------");
     printf("\n");
 
