@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <windows.h>
-#include "readseed.c"       //Memasukkan file readseed.c pada file main untuk fungsi readSeed
+#include "readSeed.c"       //Memasukkan file readSeed.c pada file main untuk fungsi readSeed
 #include "runTick.c"        //Memasukkan file runTick.c pada file main untuk fungsi runTick
 #include "animate.c"        //Memasukkan file animate.c pada file main untuk fungsi runAnimation
 
