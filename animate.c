@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <windows.h>
 
-void animate(int M, int N, int grid[M][N])
+void runAnimate(int M, int N, int grid[M][N])
 {
     int i, n;
     printf("Masukkan jumlah iterasi yang Anda inginkan: ");
@@ -19,4 +19,3 @@ void animate(int M, int N, int grid[M][N])
         Sleep(250);
     }
 }
-
