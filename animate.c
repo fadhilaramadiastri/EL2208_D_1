@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <windows.h>
-#include "runTick.c"                //Memasukkan file runTick.c agar dapat berjalan
+//#include "runTick.c"                //Memasukkan file runTick.c agar dapat berjalan
 
 void runAnimate(int M, int N, int grid[M][N])
 {
