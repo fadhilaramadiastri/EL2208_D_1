@@ -66,6 +66,14 @@ void menu_game()
         printf("\nMasukkan nomor menu : ");
         scanf("%d", &menu);
 
+        while((menu!=1) && (menu!=2) && (menu!=3))  //Keadaan bila input tidak valid
+        {
+        printf("Input menu tidak sesuai, ulangi!");     
+        
+        printf("\nMasukkan nomor menu : "); 
+        scanf("%d", &menu);
+        }
+
         if(menu == 1)
         {
             printf("Anda memilih menu Animation\n");
