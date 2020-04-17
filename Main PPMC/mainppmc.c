@@ -68,10 +68,12 @@ void menu_game()
 
         if(menu == 1)
         {
+            printf("Anda memilih menu Animation\n");
             runAnimate(row, col, board);    
         }
         else if(menu==2)
         {
+            printf("Anda memilih menu Tick\n");
             runTick(row, col, board);
                 
         }
