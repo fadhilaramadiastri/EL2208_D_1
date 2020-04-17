@@ -10,89 +10,22 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <windows.h>
+#include "readseed.c"
+#include "runTick.c"
+#include "animate.c"
 
-void readseed()
-{   FILE *file;
+FILE *file;
+char filename[20];
 
-    char strrow[3];
-    char strcol[3];
-    char str[50];
-
-    int row;
-    int col;
-    int height, width, i,j;
-
-    char filename[20];
-
-    printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");
-
-    scanf("%s",filename);
-
-    file = fopen(filename,"r+");
-
-    while(file==NULL)
-    {
-        printf("File yang anda masukkan kosong. Silakan ulangi!");
-
-        printf("\nMasukkan nama file eksternal berisi seed untuk simulasi: ");
-
-        scanf("%s",filename);
-
-        file = fopen(filename,"r+");
-
-    }
-    
-    fscanf(file, "%s\n", strrow);
-    fscanf(file, "%s\n", strcol);
-
-    row = atoi(strrow);
-    col = atoi(strcol);
-
-    printf("%d\n", row);
-    printf("%d", col);
-
-    char table[row][col];
-
-    for(width = 0; width < row; width++) 
-    {
-        fgets(str, 50, file);
-        printf("\n");
-        for(height = 0; height < col; height++) 
-        {
-            table[width][height] = str[height];
-            printf("%c", table[width][height]);
-        }
-    }
-
-    printf("\n");
-
-
-    char live;
-    int board[width][height];
-
-    for(width = 0; width < row; width++) 
-    {
-        for(height = 0; height < col; height++) 
-        {
-            if ((table[width][height]) == 'X')
-            {
-                board[width][height] = 1;
-            }
-            else
-            {
-                board[width][height] = 0;
-            }
-            //printf("%d", board[width][height]);
-        }
-        //printf("\n");
-    }
-    //printf("\n");
-    return;
-}
+int row, col;
+int board[100][100];
 
 void menu_game()
 {
-    int menu, iterasi ;
+
+    int menu;
     printf("Silakan pilih salah satu menu :");
     printf("\n1.Animation");
     printf("\n2.Tick");
@@ -109,13 +42,11 @@ void menu_game()
 
     if(menu==1)
     {
-        printf("Anda memilih menu Animation");
-        printf("\nMasukkan jumlah iterasi yang diinginkan : ");
-        scanf("%d", &iterasi);
+        runAnimate(row, col, board);
     }
     else if(menu==2)
     {
-        printf("\nAnda memilih menu Tick\n");
+        runTick(row, col, board);
                 
     }
    
@@ -131,14 +62,11 @@ void menu_game()
 
         if(menu == 1)
         {
-            printf("\nAnda memilih menu Animation");
-            printf("\nMasukkan jumlah iterasi yang diinginkan : ");
-            scanf("%d", &iterasi);
-               
+            runAnimate(row, col, board);    
         }
         else if(menu==2)
         {
-            printf("\nAnda memilih menu Tick\n");
+            runTick(row, col, board);
                 
         }
     }
@@ -147,8 +75,6 @@ void menu_game()
 
 int main()
 {
-    int pilihan_akhir;
-
     printf("------------------------------GAME OF LIFE----------------------------");
     printf("\n                     Welcome to Game of Life!");
     printf("\nProgram permainan simulasi sel yang menggambarkan perkembangan populasi");
@@ -156,8 +82,29 @@ int main()
     printf("\n---------------------------Selamat Bermain!--------------------------");
     printf("\n");
 
-    readseed();
-    
+
+
+    int pilihan_akhir;
+
+    printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");
+
+    scanf("%s",filename);
+
+    file = fopen(filename,"r+");
+
+    while(file==NULL)
+    {
+        printf("File yang anda masukkan salah. Silakan ulangi!");
+
+        printf("\nMasukkan nama file eksternal berisi seed untuk simulasi: ");
+
+        scanf("%s",filename);
+
+        file = fopen(filename,"r+");
+
+    }
+
+    readSeed(file, &row, &col, board);
     menu_game();
 
     printf("\nMasukkan file seed baru?");
@@ -177,7 +124,25 @@ int main()
 
     while(pilihan_akhir==1)
     {
-        readseed();
+        printf("Masukkan nama file eksternal berisi seed untuk simulasi: ");
+
+        scanf("%s",filename);
+
+        file = fopen(filename,"r+");
+
+        while(file==NULL)
+        {
+            printf("File yang anda masukkan kosong. Silakan ulangi!");
+
+            printf("\nMasukkan nama file eksternal berisi seed untuk simulasi: ");
+
+            scanf("%s",filename);
+
+            file = fopen(filename,"r+");
+
+        }
+        
+        readSeed(file, &row, &col, board);
         menu_game();
 
         printf("\nMasukkan file seed baru?");
@@ -200,6 +165,7 @@ int main()
     printf("Terima kasih karena telah bermain Game of Life!");
     printf("\nKami tunggu permainan anda berikutnya!");
     
-        
+    fclose(file);
+
     return 0;
 }
