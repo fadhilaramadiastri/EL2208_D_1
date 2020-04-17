@@ -46,10 +46,12 @@ void menu_game()
 
     if(menu==1)
     {
+        printf("Anda memilih menu Animation\n");
         runAnimate(row, col, board);        //Memanggil fungsi runAnimate bila menu == 1
     }
     else if(menu==2)
     {
+        printf("Anda memilih menu Tick\n");
         runTick(row, col, board);           //Memanggil fungsi runTick bila menu == 2
                 
     }
@@ -117,6 +119,7 @@ int main()
     readSeed(file, &row, &col, board);          //Mencetak file seed ke layar dengan memanggil fungsi readSeed
     menu_game();                                //Pemanggilan fungsi menu_game untuk memilih opsi
 
+    printf("Anda memilih menu Quit");
     printf("\nMasukkan file seed baru?");       //Keadaan bila input menu = 3 atau quit
     printf("\n1. Ya");
     printf("\n2. Tidak");
